@@ -21,20 +21,24 @@ crud with login auth
 
 - addBook(POST) : /api/book/add
   use json format :
-  {
-    "title" : "",
-    "author" : "",
-    "category" : ""
-  }
+  ```json
+    {
+      "title" : "",
+      "author" : "",
+      "category" : ""
+    }
+  ```
+
   
 - updateBook(PUT) : /api/book/update/:id
    use json format,header with key id :
-   
-  {
-    "title" : "",
-    "author" : "",
-    "category" : ""
-  }
+  ```json
+    {
+      "title" : "",
+      "author" : "",
+      "category" : ""
+    }
+  ```
   
 - deletBook(DELETE) : /api/book/delete/:id
   header with key id
