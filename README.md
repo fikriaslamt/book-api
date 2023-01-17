@@ -1,7 +1,7 @@
 host : https://book-api-production.up.railway.app/
 
 fitur : 
-- login(POST) : /api/login
+- login(POST) : /api/login \
   use json format : 
   ```json
     {
