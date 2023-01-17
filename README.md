@@ -14,12 +14,12 @@ fitur :
 - logout     : /api/logout
 
 - getBooks    : /api/book
-- getBookByID : /api/book/:id
+- getBookByID : /api/book/:id \
   use header with key id
 
 crud with login auth
 
-- addBook(POST) : /api/book/add
+- addBook(POST) : /api/book/add \
   use json format :
   ```json
     {
@@ -30,7 +30,7 @@ crud with login auth
   ```
 
   
-- updateBook(PUT) : /api/book/update/:id
+- updateBook(PUT) : /api/book/update/:id \
    use json format,header with key id :
   ```json
     {
@@ -40,8 +40,8 @@ crud with login auth
     }
   ```
   
-- deletBook(DELETE) : /api/book/delete/:id
-  header with key id
+- deletBook(DELETE) : /api/book/delete/:id \
+  use header with key id
 
   
  
