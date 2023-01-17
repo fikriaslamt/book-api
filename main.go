@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	os.Setenv("DATABASE_URL", "postgres://postgres:asd123@localhost:5432/book-api")
+	os.Setenv("DATABASE_URL", "postgresql://postgres:yCg0jfiFWZZBjFTXyU2I@containers-us-west-169.railway.app:6782/railway")
 	db.Connect()
 	api.Routes()
 	api.Start()
