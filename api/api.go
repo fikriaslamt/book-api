@@ -17,7 +17,7 @@ func Routes() {
 
 	store := cookie.NewStore([]byte("secret"))
 	r.Use(sessions.Sessions("session_token", store))
-
+	r.Use(cors.Default())
 	//user routes
 	r.POST("/api/login", userController.Login)
 	r.GET("/api/logout", userController.Logout)
@@ -38,6 +38,7 @@ func Routes() {
 }
 
 func Start() {
+
 	r.Run()
-	r.Use(cors.Default())
+
 }
