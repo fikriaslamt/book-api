@@ -5,6 +5,7 @@ import (
 	"book-api/controller/userController"
 	"book-api/middleware"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
@@ -38,4 +39,5 @@ func Routes() {
 
 func Start() {
 	r.Run()
+	r.Use(cors.Default())
 }
