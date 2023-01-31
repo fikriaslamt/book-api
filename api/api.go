@@ -28,7 +28,7 @@ func Routes() {
 
 	auth := r.Group("/api/book")
 	auth.Use(middleware.Authentication())
-	// auth.Use(cors.Default())
+	auth.Use(cors.Default())
 	{
 		auth.POST("/add", bookController.AddBook)
 		auth.PUT("/update/:id", bookController.UpdateBook)
