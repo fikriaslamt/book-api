@@ -16,3 +16,11 @@ func UserAvail(cred model.User) error {
 	}
 	return nil
 }
+
+func GetUser(username string) (model.User, error) {
+	cred := model.User{}
+	if err := db.DB.Where("username = ?", username).First(&cred).Error; err != nil {
+		return model.User{}, err
+	}
+	return cred, nil
+}

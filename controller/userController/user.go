@@ -3,9 +3,9 @@ package userController
 import (
 	"book-api/model"
 	repo "book-api/repository"
+	"book-api/utils"
 	"net/http"
 
-	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
@@ -41,10 +41,17 @@ func Login(c *gin.Context) {
 		}
 	}
 
-	cookie, _ := c.Cookie("session_token")
-	session := sessions.Default(c)
-	session.Set("session_token", cookie)
-	session.Save()
+	tokenString := utils.GenerateToken(user.Username)
+	c.SetSameSite(http.SameSiteLaxMode)
+	c.SetCookie(
+		"auth",
+		tokenString,
+		3600*24,
+		"",
+		"",
+		false,
+		true,
+	)
 
 	c.JSON(http.StatusOK, gin.H{"message": "login success"})
 
@@ -52,9 +59,15 @@ func Login(c *gin.Context) {
 
 func Logout(c *gin.Context) {
 
-	session := sessions.Default(c)
-	session.Clear()
-	session.Save()
+	c.SetCookie(
+		"auth",
+		"",
+		-1,
+		"",
+		"",
+		false,
+		true,
+	)
 
 	c.JSON(http.StatusOK, gin.H{"message": "logout success"})
 }

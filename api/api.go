@@ -3,6 +3,8 @@ package api
 import (
 	"book-api/controller/bookController"
 	"book-api/controller/userController"
+	"book-api/middleware"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
@@ -24,14 +26,9 @@ func Routes() {
 	r.GET("/api/book", bookController.GetAllBooks)
 	r.GET("/api/book/:id", bookController.GetBook)
 
-	auth := r.Group("/api/book")
-	//auth.Use(middleware.Authentication())
-	auth.Use(cors.Default())
-	{
-		auth.POST("/add", bookController.AddBook)
-		auth.PUT("/update/:id", bookController.UpdateBook)
-		auth.DELETE("/delete/:id", bookController.DeleteBook)
-	}
+	r.POST("/api/book/add", middleware.Auth, bookController.AddBook)
+	r.PUT("/api/book/update/:id", middleware.Auth, bookController.UpdateBook)
+	r.DELETE("/api/book/delete/:id", middleware.Auth, bookController.DeleteBook)
 
 }
 
