@@ -24,7 +24,7 @@ func Connect() {
 
 	db, err := gorm.Open(postgres.New(postgres.Config{
 		DriverName: "pgx",
-		DSN:        os.Getenv("DATABASE_URL2"),
+		DSN:        os.Getenv("DATABASE_URL"),
 	}), &gorm.Config{})
 	if err != nil {
 		fmt.Println(err)
