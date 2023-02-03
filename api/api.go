@@ -19,7 +19,6 @@ func Routes() {
 	r.Use(sessions.Sessions("session_token", store))
 
 	config := cors.DefaultConfig()
-	config.AllowAllOrigins = true
 	config.AllowCredentials = true
 
 	r.Use(cors.New(config))
