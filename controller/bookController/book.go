@@ -19,6 +19,7 @@ func GetAllBooks(c *gin.Context) {
 		return
 	}
 	c.Header("Content-Type", "application/json")
+	c.Header("Access-Control-Allow-Oirigin", "*")
 	c.JSON(http.StatusOK, gin.H{"book": data})
 }
 
@@ -36,6 +37,7 @@ func GetBook(c *gin.Context) {
 
 	}
 	c.Header("Content-Type", "application/json")
+	c.Header("Access-Control-Allow-Oirigin", "*")
 	c.JSON(http.StatusOK, gin.H{"book": data})
 }
 
@@ -58,6 +60,8 @@ func AddBook(c *gin.Context) {
 		return
 	}
 	c.Header("Content-Type", "application/json")
+	c.Header("Access-Control-Allow-Oirigin", "*")
+	c.Header("Access-Control-Allow-Methods", "POST,OPTIONS")
 	c.JSON(http.StatusOK, gin.H{"book": book})
 
 }
@@ -83,6 +87,8 @@ func UpdateBook(c *gin.Context) {
 		return
 	}
 	c.Header("Content-Type", "application/json")
+	c.Header("Access-Control-Allow-Oirigin", "*")
+	c.Header("Access-Control-Allow-Methods", "PUT,OPTIONS")
 	c.JSON(http.StatusOK, gin.H{"book": book})
 
 }
@@ -100,5 +106,7 @@ func DeleteBook(c *gin.Context) {
 
 	}
 	c.Header("Content-Type", "application/json")
+	c.Header("Access-Control-Allow-Oirigin", "*")
+	c.Header("Access-Control-Allow-Methods", "DELETE,OPTIONS")
 	c.JSON(http.StatusOK, nil)
 }

@@ -53,6 +53,7 @@ func Login(c *gin.Context) {
 		true,
 	)
 	c.Header("Content-Type", "application/json")
+	c.Header("Access-Control-Allow-Oirigin", "*")
 	c.JSON(http.StatusOK, gin.H{"message": "login success"})
 
 }
