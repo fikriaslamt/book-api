@@ -21,6 +21,7 @@ func Routes() {
 	config := cors.DefaultConfig()
 	config.AllowCredentials = true
 	config.AllowAllOrigins = true
+	config.AllowHeaders = []string{"Authorization", "Origin", "Content-Length", "Content-Type"}
 
 	r.Use(cors.New(config))
 	//user routes
