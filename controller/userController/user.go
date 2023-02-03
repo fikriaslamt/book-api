@@ -50,7 +50,7 @@ func Login(c *gin.Context) {
 		"",
 		"",
 		false,
-		false,
+		true,
 	)
 
 	c.JSON(http.StatusOK, gin.H{"message": "login success"})
