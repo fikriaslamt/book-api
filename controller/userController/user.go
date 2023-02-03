@@ -52,7 +52,7 @@ func Login(c *gin.Context) {
 		false,
 		true,
 	)
-
+	c.Header("Content-Type", "application/json")
 	c.JSON(http.StatusOK, gin.H{"message": "login success"})
 
 }
@@ -68,6 +68,6 @@ func Logout(c *gin.Context) {
 		false,
 		true,
 	)
-
+	c.Header("Content-Type", "application/json")
 	c.JSON(http.StatusOK, gin.H{"message": "logout success"})
 }

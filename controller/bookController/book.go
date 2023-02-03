@@ -18,6 +18,7 @@ func GetAllBooks(c *gin.Context) {
 		})
 		return
 	}
+	c.Header("Content-Type", "application/json")
 	c.JSON(http.StatusOK, gin.H{"book": data})
 }
 
@@ -34,7 +35,7 @@ func GetBook(c *gin.Context) {
 		return
 
 	}
-
+	c.Header("Content-Type", "application/json")
 	c.JSON(http.StatusOK, gin.H{"book": data})
 }
 
@@ -56,6 +57,7 @@ func AddBook(c *gin.Context) {
 		})
 		return
 	}
+	c.Header("Content-Type", "application/json")
 	c.JSON(http.StatusOK, gin.H{"book": book})
 
 }
@@ -80,6 +82,7 @@ func UpdateBook(c *gin.Context) {
 		})
 		return
 	}
+	c.Header("Content-Type", "application/json")
 	c.JSON(http.StatusOK, gin.H{"book": book})
 
 }
@@ -96,5 +99,6 @@ func DeleteBook(c *gin.Context) {
 		return
 
 	}
+	c.Header("Content-Type", "application/json")
 	c.JSON(http.StatusOK, nil)
 }
