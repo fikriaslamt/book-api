@@ -20,7 +20,7 @@ func Routes() {
 
 	config := cors.DefaultConfig()
 	config.AllowCredentials = true
-	config.AllowOrigins = []string{"http://localhost:3000/"}
+	config.AllowOrigins = []string{"http://localhost:3000/", "http://google.com"}
 
 	r.Use(cors.New(config))
 	//user routes
